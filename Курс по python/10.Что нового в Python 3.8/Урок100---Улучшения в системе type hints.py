@@ -1,4 +1,4 @@
-from typing import Literal, Final
+from typing import Any, Dict, Literal, Final, TypedDict
 
 
 # f = open(r'C:\file.txt', 'v')  # Способа открытия файла v не существует,но клиет ничего не замечает
@@ -13,7 +13,7 @@ from typing import Literal, Final
 pi: Final = 3.14  # Мы создали не изменяемую константу
 # pi = 1.2
 
-
+# @Final - так нельзя
 class Dog:
 
     def __init__(self) -> None:
@@ -35,3 +35,19 @@ class SuperDog(Dog):
 dog = SuperDog()
 print(dog.health)
 dog.bark()
+
+person: Dict[str, str] = {'name': 'john', 'last_name': 'conrad', 'sex': 'm'}
+
+# dict_result: Dict[str, Any] = {'word': 'hello', 'count': 5}
+# dict_result['comment'] = 123
+# print(dict_result['lol'])      ЗДЕСЬ НЕ БЫЛО ОШИБКИ
+
+
+class WordStat(TypedDict):
+    word: str
+    count: int
+
+
+dict_result: WordStat = {'word': 'hello', 'count': 5}
+# dict_result: WordStat = {'word': 'hello'}
+# print(dict_result['lol'])       А ЗДЕСЬ ТЕПЕРЬ ЕСТЬ

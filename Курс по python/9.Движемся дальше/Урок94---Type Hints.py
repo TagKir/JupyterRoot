@@ -2,7 +2,7 @@
 
 
 from random import random
-from typing import Any, Iterable, Optional, Tuple, Union
+from typing import Any, Dict, Iterable, Optional, Tuple, Union
 
 
 class Character:
@@ -44,7 +44,7 @@ changes_in_rating: tuple[int, ...]
 changes_in_rating = (1, 2, 3, 4, 5)
 # changes_in_rating = (1, 'abc')
 
-chess_players: dict[str, int] = {'Kramnik': 2750}
+chess_players: Dict[str, int] = {'Kramnik': 2750}
 
 
 def random_stream(min_val: int, max_val: int) -> Iterable[int]:
